@@ -1,0 +1,29 @@
+﻿@page
+@model ProjCRS.Pages.CrimesInLocationModel
+@{
+}
+
+<h1>Crimes in Location</h1>
+
+<h2>@Model.CrimeLocations.StreetAddress, @Model.CrimeLocations.City, @Model.CrimeLocations.State</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Time of Occurance</th>
+            <th>Crime</th>
+            <th>Criminal</th>
+            <th>Case Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var cri in Model.CrimeLocations.CriminalActivities) {
+            <tr>
+                <td class="text-right">@cri.TimeOfOccurance</td>
+                <td>@cri.CriminalCode.CodeWDescription</td>
+                <td>@cri.Criminal.FullName</td>
+                <td>@cri.CaseStatus</td>
+            </tr>
+        }
+    </tbody>
+</table>

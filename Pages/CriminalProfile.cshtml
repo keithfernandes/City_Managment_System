@@ -1,0 +1,90 @@
+﻿@page
+@model CriminalProfileModel
+@{
+}
+
+<h1>Criminal Profile</h1>
+<h2 class="text-center text-success">@Model.Criminal.FirstName @Model.Criminal.LastName </h2>
+<div class="row">
+    
+    <div class="col-md-6">
+        <h3>Criminal Profile</h3>
+        <dl>
+            <dd>First Name</dd>
+            <dt>@Model.Criminal.FirstName</dt>
+            
+            <dd>LastName</dd>
+            <dt>@Model.Criminal.LastName</dt>
+
+            <dd>BirthDate</dd>
+            <dt>@Model.Criminal.BirthDate</dt>
+
+            <dd>Gender</dd>
+            <dt>@Model.Criminal.Gender</dt>
+
+            <dd>StreetAddress</dd>
+            <dt>@Model.Criminal.StreetAddress</dt>
+
+            <dd>City</dd>
+            <dt>@Model.Criminal.City</dt>
+
+             <dd>State</dd>
+            <dt>@Model.Criminal.State</dt>
+
+            <dd>Employed</dd>
+            <dt>@Model.Criminal.Employed</dt>
+
+             <dd>Income</dd>
+            <dt>@Model.Criminal.Income</dt>
+
+             <dd>EducationLevel</dd>
+            <dt>@Model.Criminal.EducationLevel</dt>
+
+
+
+
+
+
+
+
+
+
+            
+           
+        </dl>
+        
+    </div>
+
+
+   
+    <div class="col-md-6">
+        <h3>Criminal History</h3>
+         <table class = "table">
+             <thead>
+                 <th>Crime</th>
+                 <th>Location</th>
+                 <th>Case Status</th>
+
+                
+             </thead>
+             <tbody>
+
+            @foreach(var coll in Model.Criminal.CriminalActivities) {
+                <tr>
+                   <td>@coll.CriminalCode.Description
+                       </td> 
+                   <td>@coll.Location.State 
+                       </td> 
+                    <td>@coll.CaseStatus
+                       </td> 
+
+              
+            
+                
+            </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+  
+</div>

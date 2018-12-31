@@ -1,0 +1,73 @@
+@page
+@model ProjCRS.Pages.CriminalActivities.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Criminal Activity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CriminalActivity.Id" />
+            <div class="form-group">
+                <label asp-for="CriminalActivity.TimeOfOccurance" class="control-label"></label>
+                <input asp-for="CriminalActivity.TimeOfOccurance" class="form-control" />
+                <span asp-validation-for="CriminalActivity.TimeOfOccurance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CriminalActivity.CriminalId" class="control-label"></label>
+                <select asp-for="CriminalActivity.CriminalId" class="form-control" asp-items="ViewBag.CriminalId">
+                    <option selected disabled>Select</option>
+                </select>
+                <span asp-validation-for="CriminalActivity.CriminalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CriminalActivity.LocationId" class="control-label"></label>
+                <select asp-for="CriminalActivity.LocationId" class="form-control" asp-items="ViewBag.LocationId">
+                     <option selected disabled>Select</option>
+                </select>
+                <span asp-validation-for="CriminalActivity.LocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CriminalActivity.CriminalCodeId" class="control-label"></label>
+                <select asp-for="CriminalActivity.CriminalCodeId" class="form-control" asp-items="ViewBag.CriminalCodeId">
+                     <option selected disabled>Select</option>
+                </select>
+                <span asp-validation-for="CriminalActivity.CriminalCodeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CriminalActivity.CaseStatus" class="control-label"></label>
+                 <select asp-for="CriminalActivity.CaseStatus" class="form-control" >              
+                  <option selected disabled>Select</option>
+                  <option value="Pending District Court">Pending District Court</option>
+                  <option value="Pending Family Court">Pending Family Court</option>
+                  <option value="Pending High Court">Pending High Court</option>
+                  <option value="Pending Appeal Court">Pending Appeal Court</option>
+                  <option value="Pending Coroners Court">Pending Coroners Court</option>
+                  <option value="Pending Youth Court">Pending Youth Court</option>
+                  <option value="Case Dismissed">Case Dismissed</option>
+                  <option value="Acquited">Acquited</option>
+                  <option value="Convicted">Convicted</option>
+
+               </select>
+                <span asp-validation-for="CriminalActivity.CaseStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

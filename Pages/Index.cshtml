@@ -1,0 +1,130 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 15px;
+  background-image: url("https://www.zadna.org.za/wp-content/uploads/2017/10/cybersecurity.jpg");
+}
+
+.container {
+  position: relative;
+  top: 0;
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.container img {vertical-align: center;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #a73838ec;
+  width: 100%;
+  padding: 20px;
+}
+</style>
+
+
+</head>
+<body>
+
+
+<div class="container">
+  <img src="https://www.weber.edu/wsuimages/mcj/mcj-banner.jpg" alt="CRS" style="width:1000px;height:50%" align="center">
+  <div class="content">
+    <h3><strong><span style ="Color:#811010ec">#Criminal Record System#</span></strong></h3>
+    <p>The Criminal Record System (CRS) is an automated case management computer program designed exclusively for criminal trial courts. The system is up to date in all stages of case related record keeping from case initiation through disposition and appeal. </p>  </div>
+</div>
+
+<h3><strong><span style ="Color:#811010ec">Criminal Statisics</span></strong></h3>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Criminal Statisics</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Crimes</td>
+                    <td class="text-right">@Model.TotalCrimes</td>
+                </tr>
+                <tr>
+                    <td>Number of Criminals- Male</td>
+                    <td class="text-right">@Model.NumberofCriminalsMale</td>
+                    
+                </tr>  
+                <tr>
+                    <td>Number of Criminals - Female</td>
+                    <td class="text-right">@Model.NumberofCriminalsFemale</td>
+                </tr>  
+                <tr>
+                    <td>Number of Criminals who are Employed</td>
+                    <td class="text-right">@Model.NumberofCriminalswhoareEmployed</td>
+                </tr>  
+                <tr>
+                    <td>Number of Criminals who are Unemployed</td>
+                    <td class="text-right">@Model.NumberofCriminalswhoareUnemployed</td>
+                </tr>  
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><strong><span style ="Color:#811010ec">Search Tools & Quick Links </span></strong></h4>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li><a href ="https://localhost:5001/searchcriminals">Search Criminals</a></li>
+                    <li><a href ="https://localhost:5001/searchcrimesinlocation">Search By Location</a></li>
+                    <li><a href ="https://localhost:5001/searchcrimecodes">Search Crime Codes </a></li>
+                    <li><a href ="https://localhost:5001/RecentCrimelist">Crimes Registered Last week </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><strong><span style ="Color:#811010ec">Administration</span></strong></h4>
+            </div>
+            <div class="panel-body">
+                <h5><strong><span style ="Color:#811010ec">Create  </span></strong></h5>
+                <ul>
+                    <li><a href ="https://localhost:5001/Criminals/Create">New Criminal Record</a></li>
+                    <li><a href ="https://localhost:5001/CriminalCodes/Create">New Criminal Code</a></li>
+                    <li><a href ="https://localhost:5001/CriminalActivities/Create">New Criminal Activity</a></li>
+
+                </ul>
+                <h5><strong><span style ="Color:#811010ec">Edit  </span></strong></h5>
+                <ul>
+                    <li><a href ="https://localhost:5001/Criminals"> Criminal Record</a></li>
+                    <li><a href ="https://localhost:5001/crimelocations">Crime Location</a></li>
+                    <li><a href ="https://localhost:5001/CriminalActivities">Criminal Activity</a></li>
+                    <li><a href ="https://localhost:5001/CriminalCodes">Criminal Code</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>   
+</div>
+</body>
+</html>

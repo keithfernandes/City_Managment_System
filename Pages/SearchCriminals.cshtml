@@ -1,0 +1,63 @@
+﻿@page
+@model SearchCriminalsModel
+@{
+}
+
+
+<form action="" method="POST" style="margin-top: 50px;">
+  <div class="form-group">
+    <label class="control-label" for="search">Enter First Name :</label>
+    <input type="text" class="form-control" name="search" id="search" />
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Search Criminals" class="btn btn-default" />
+  </div>
+</form>
+
+
+@if(Model.SearchCompleted) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Employment status</th>
+                <th>Location</th>
+                <th>More Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.SearchResults.Count > 0) {
+                @foreach(var crim in Model.SearchResults) {
+                    <tr>
+                        <td>@crim.FirstName</td>
+                        <td>@crim.LastName</td>
+                        <td>
+                            @if(crim.Employed) {
+                                <text>Employed</text>
+                            } else {
+                                <text>Unemployed</text>
+                            }
+                        </td>
+                        <td>@crim.City</td>
+                        <td>
+                            <a asp-page="/CriminalProfile" asp-route-id="@crim.Id">View Criminal History</a>
+                        </td>
+                    </tr>
+                }
+            } else {
+                <tr class="danger">
+                    <td colspan="4" class="text-center">
+                        No results found for term "@Model.Search"
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else {
+    <div class="alert alert-info">
+        <p>
+            Enter the search terms into the box and click <strong>Search Criminals</strong>
+        </p>
+    </div>
+}

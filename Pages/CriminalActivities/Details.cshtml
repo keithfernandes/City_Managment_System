@@ -1,0 +1,49 @@
+@page
+@model ProjCRS.Pages.CriminalActivities.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Criminal Activity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.TimeOfOccurance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.TimeOfOccurance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.Criminal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.Criminal.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.Location.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.CriminalCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.CriminalCode.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.CaseStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.CaseStatus)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CriminalActivity.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

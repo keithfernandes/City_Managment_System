@@ -1,0 +1,52 @@
+@page
+@model ProjCRS.Pages.CriminalActivities.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Criminal Activity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.TimeOfOccurance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.TimeOfOccurance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.Criminal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.Criminal.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.Location.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.CriminalCode)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.CriminalCode.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CriminalActivity.CaseStatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CriminalActivity.CaseStatus)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CriminalActivity.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
